@@ -24,8 +24,8 @@ export default function InputFileUpload() {
       tabIndex={-1}
       startIcon={<CloudUploadIcon />}
     >
-      Upload file
-      <VisuallyHiddenInput type="file" />
+      Upload files {/* Updated text to indicate multiple files */}
+      <VisuallyHiddenInput type="file" multiple /> {/* Added 'multiple' attribute */}
     </Button>
   );
 }
