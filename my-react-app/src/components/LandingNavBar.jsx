@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 
 import logo from '../logo.png'; 
+import git from '../git.png'
 
 class LandingNavBar extends Component {
 
@@ -12,8 +13,13 @@ class LandingNavBar extends Component {
         return(
             <Navbar>
                 <Navbar.Brand as={Link} to="/">
-                    <div style={{width:'100px', height:'100px'}}>
+                    <div style={{width:'100px', height:'140px'}}>
                         <img style={{width:'100px', height:'100px'}} src={logo} alt="Logo" />
+                    </div>
+                </Navbar.Brand>
+                <Navbar.Brand as={Link} to="https://github.com/AksheetDUTTA123/Google_Mhacks_Project2024">
+                    <div style={{width:'2180px', height:'100px'}}>
+                        <img style={{width:'50px', height:'50px'}} src={git} alt="Another Logo" />
                     </div>
                 </Navbar.Brand>
                 <div className="ml-auto pr-5 pt-3">

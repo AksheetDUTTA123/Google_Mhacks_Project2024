@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import LandingNavBar from "../components/LandingNavBar";
 import LargeText from "../components/LargeText";
 import backgroundImage from "./background.png";
-import { Link } from 'react-router-dom';
 import "./Landing.css"; // Import the CSS file
 import axios from 'axios';
 import FileUploadButton from './fileuploadbutton';
@@ -73,24 +73,21 @@ function Landing() {
             <div className="" style={{ position: 'absolute', top: '25%', left: '25%' }}>
                 <LargeText text="Note.ai" />
                 <h1 style={{ textAlign: 'left', color: 'ivory' }}>Insert motto here ✨</h1>
-                {/* <div>
-                    <label htmlFor="file-upload" className="custom-file-upload">
-                        <input id="file-upload" type="file" onChange={handleFileUpload} style={{ display: 'none' }} />
-                        Choose file
-                    </label>
-                </div> */}
                 <FileUploadButton />
                 <div className="App">
                     <form onSubmit={handleMultipleSubmit}>
                         <h1>React Multiple File Upload</h1>
-                        {/* Apply the custom-file-upload class directly to the input element */}
                         <input type="file" multiple onChange={handleMultipleChange} className="custom-file-upload" />
-                        <button type="submit">Upload</button>
+                        <Button type="submit" variant="primary">Upload</Button>
                     </form>
                     {uploadedFiles.map((file, index) => (
                         <img key={index} src={file} alt={`Uploaded content ${index}`} />
                     ))}
                 </div>
+                {/* Button navigating to Demo page */}
+                <Link to="/demo">
+                    <Button variant="success">Go to Demo</Button>
+                </Link>
             </div>
         </div>
     );
