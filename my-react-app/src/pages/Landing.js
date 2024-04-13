@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import "./Landing.css"; // Import the CSS file
 
 function Landing() {
+
     var btns = []
     let text = ["GitHub"]
     let url = ['https://github.com/AksheetDUTTA123/Google_Mhacks_Project2024'];
