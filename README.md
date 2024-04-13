@@ -1,1 +1,3 @@
-# Google_Mhacks_Project2024qiuwefeh
+# Google_Mhacks_Project2024
+
+# Very fun
