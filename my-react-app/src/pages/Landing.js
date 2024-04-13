@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import LandingNavBar from "../components/LandingNavBar";
 
 import LargeText from "../components/LargeText";
-import backgroundImage from "./Landing_3.png";
+import backgroundImage from "./background.png";
 
 // import { Login } from "../components/Login";
 
