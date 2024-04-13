@@ -56,7 +56,7 @@ function Home() {
 
     var btns = []
     let text = ["Button"]
-    let url = ['/button'];
+    let url = ['/home'];
 
     for(let i = 0; i < text.length; ++i) {
         btns.push(
@@ -67,22 +67,14 @@ function Home() {
             </Link>
         )
     }
-    // return (
-    //     <div className="" style={fullPage}>
-    //         <LandingNavBar buttons={btns}/>
-    //         <div style={{marginLeft:'45vw'}}>
-    //             {/* <ProfileCard user={user1}/>
-    //             <ProfileCard user={user2}/>
-    //             <ProfileCard user={user3}/> */}
-    //         </div>
-            
-    //         <div style={{position:'absolute', top:'0%', width:'30vw', height:'100vh'}}>
-    //             <ProfilePanel img={anish} displayname={'Anish Chandra'} desc={'An Aspiring Software Engineering Looking for Their First Professional Experience'}/>
-    //         </div>
 
-            
-    //     </div>
-    // );
+
+    return (
+        <div>
+          <h1>Home Page</h1>
+          <Link to="/test">Go to Other Page</Link>
+        </div>
+      );
 }
 
 

@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 // Pages
 import Landing from './pages/Landing.js';
 import Home from './pages/Home.js';
+import Test from './pages/Test.js';
 // import {Login} from './components/Login.jsx';
 // import Contact from './pages/Contact.js';
 // import Chat from './components/Chat.jsx';
@@ -27,6 +28,7 @@ function App() {
             <Routes>
             <Route exact path='/' element={<Landing/>} />
               <Route exact path="/home" element={<Home />} />
+              <Route exact path="/test" element={<Test />} />
               {/* <Route exact path="/login" element={<Login />} /> */}
               {/* <Route exact path="/about" element={<About />} /> */}
               {/* <Route exact path="/contact" element={<Contact />} /> */}

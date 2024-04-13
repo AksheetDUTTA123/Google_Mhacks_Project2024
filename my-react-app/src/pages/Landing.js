@@ -14,8 +14,8 @@ import {Link} from 'react-router-dom';
 function Landing() {
 
         var btns = []
-        let text = ["button"]
-        let url = ['/button'];
+        let text = ["GitHub"]
+        let url = ['https://github.com/AksheetDUTTA123/Google_Mhacks_Project2024'];
 
         for(let i = 0; i < 1; ++i) {
             btns.push(
@@ -47,11 +47,19 @@ function Landing() {
                 }}> 
                 <LandingNavBar style={{}} buttons={btns} />
                 </div>
-                <div className="" style={{position:'absolute', top:'40%', left:'5%'}}>
+                <div className="" style={{position:'absolute', top:'25%', left:'25%'}}>
                     <LargeText text="Note.ai" />
                     <h1 style={{textAlign:'left', color:'ivory'}}>Insert motto here ✨</h1>
+                    <div>
+                    {/* <h1>Landing Page</h1> */}
+                    <Link to="/test">Upload files (test)</Link>
+                    </div>
                 </div>
             </div>
+
+
+
+
         
         );
     }
