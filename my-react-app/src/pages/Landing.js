@@ -51,7 +51,7 @@ function Landing() {
                     <LargeText text="Note.ai" />
                     <h1 style={{textAlign:'left', color:'ivory'}}>Insert motto here ✨</h1>
                     <div>
-                    {/* <h1>Landing Page</h1> */}
+                    {/* <h1>Landing Pagee</h1> */}
                     <Link to="/test">Upload files (test)</Link>
                     </div>
                 </div>
