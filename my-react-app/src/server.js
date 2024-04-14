@@ -34,6 +34,7 @@ app.post('/upload', upload.array('file', 10), (req, res) => {
         uploadedFiles.push(newPath);
     });
     db.uploadedFiles = uploadedFiles;
+
     // Send response with the paths of processed files ye or ney
     res.json({ files: uploadedFiles });
     console.log("upload done")
@@ -47,9 +48,25 @@ app.get('/generating', (req, res) => {
     // const pythonProcess = spawn('python', ['main.py', ...uploadedFiles]);
     const uploadedFiles = db.uploadedFiles;
 
-    spawn('python3',['main.py', ...uploadedFiles]).stdout.on('data', (data) => {
+    const pythonProcess = spawn('python3',['main.py', ...uploadedFiles]);
+
+    pythonProcess.stdout.on('data', (data) => {
         console.log("python: " + data);
         res.send(data);
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+        console.error("Python error: " + data);
+    });
+
+    pythonProcess.on('error', (error) => {
+        console.error("Failed to start subprocess: " + error);
+    });
+
+    pythonProcess.on('close', (code) => {
+        if (code !== 0) {
+            console.log(`Python process exited with code ${code}`);
+        }
     });
     console.log("end")
 });

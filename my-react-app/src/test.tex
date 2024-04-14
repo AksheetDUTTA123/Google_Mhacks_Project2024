@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{multicol}
+\usepackage[margin=0.3in]{geometry}
+\usepackage{graphicx}
+% Set line spacing
+\renewcommand{\baselinestretch}{0.2}
+\begin{document}
+\begin{multicols}{2}\section*{Lecture 20: Confidence Interval for One Population Proportion}
+
+\begin{itemize}
+\item \textbf{Confidence Interval for a Population Proportion:}
+    \begin{itemize}
+        \item Formula: $\hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
+        \item Requirements:
+            \begin{itemize}
+                \item Random sample
+                \item Large enough sample size (np and n(1-p) both $\ge 10$)
+            \end{itemize}
+        \item Agresti-Coull Adjustment: Add 2 successes and 2 failures to the sample size.
+        \item Interpretation: We are [confidence level] confident that the true population proportion is between [lower bound] and [upper bound].
+    \end{itemize}
+\item \textbf{Standard Error vs. Standard Deviation:}
+    \begin{itemize}
+        \item Standard error (SE) measures the variability of the sample proportion.
+        \item Standard deviation (SD) measures the variability of the population.
+        \item SE is used when the population proportion is unknown.
+    \end{itemize}
+\item \textbf{Steps for Constructing a Confidence Interval:}
+    \begin{itemize}
+        \item Verify assumptions (random sample, large enough sample size).
+        \item Calculate the sample proportion $\hat{p}$.
+        \item Find the critical value $z_{\alpha/2}$ based on the confidence level.
+        \item Calculate the margin of error.
+        \item Construct the confidence interval.
+        \item Interpret the confidence interval in the context of the problem.
+    \end{itemize}
+\item \textbf{Sample Size Calculation:}
+    \begin{itemize}
+        \item Formula: $n = \frac{z_{\alpha/2}^2 \cdot \hat{p}(1-\hat{p})}{ME^2}$
+        \item Use this formula to determine the minimum sample size needed to achieve a desired margin of error.
+    \end{itemize}
+\end{itemize}
+
+\section*{Lecture 21: Inference about $\mu_1 - \mu_2$}
+
+\begin{itemize}
+\item \textbf{Assumptions for Two-Sample t-Tests:}
+    \begin{itemize}
+        \item Independent random samples from two populations.
+        \item Both populations are normally distributed.
+        \item Population standard deviations are unknown.
+    \end{itemize}
+\item \textbf{Central Limit Theorem (CLT): }
+    \begin{itemize}
+        \item If sample sizes are large enough (n $\ge 30$), the sampling distribution of the sample mean will be approximately normal, regardless of the population distribution.
+    \end{itemize}
+\item \textbf{Hypothesis Testing for the Difference in Means:}
+    \begin{itemize}
+        \item Null Hypothesis ($H_0$): $\mu_1 - \mu_2 = 0$ (no difference in means)
+        \item Alternative Hypothesis ($H_a$): 
+            \begin{itemize}
+                \item $\mu_1 - \mu_2 \ne 0$ (two-sided)
+                \item $\mu_1 - \mu_2 > 0$ (right-tailed)
+                \item $\mu_1 - \mu_2 < 0$ (left-tailed)
+            \end{itemize}
+        \item Test Statistic: $t = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}$
+        \item P-value: Probability of observing a test statistic as extreme or more extreme than the one calculated, assuming the null hypothesis is true.
+        \item Conclusion:
+            \begin{itemize}
+                \item If p-value < $\alpha$ (significance level), reject $H_0$.
+                \item If p-value $\ge$ $\alpha$, fail to reject $H_0$.
+            \end{itemize}
+    \end{itemize}
+\item \textbf{Confidence Interval for the Difference in Means:}
+    \begin{itemize}
+        \item Formula: $(\bar{x}_1 - \bar{x}_2) \pm t_{\alpha/2} \cdot s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$
+        \item Interpretation: We are [confidence level] confident that the true difference in population means is between [lower bound] and [upper bound].
+    \end{itemize}
+\end{itemize}
+
+\section*{Lecture 22: Confidence Interval for $\mu_1 - \mu_2$}
+
+\begin{itemize}
+\item \textbf{Pooled t-Test:}
+    \begin{itemize}
+        \item Used when we assume that the population variances are equal.
+        \item Pooled variance: $s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}$
+    \end{itemize}
+\item \textbf{Assumptions for Pooled t-Test:}
+    \begin{itemize}
+        \item Independent random samples from two populations.
+        \item Both populations are normally distributed.
+        \item Population variances are equal.
+    \end{itemize}
+\item \textbf{Hypothesis Testing and Confidence Interval for Pooled t-Test:}
+    \begin{itemize}
+        \item Similar to the regular two-sample t-test, but using the pooled variance $s_p^2$ in the calculations.
+    \end{itemize}
+\item \textbf{Paired t-Test:}
+    \begin{itemize}
+        \item Used when the samples are dependent, meaning each observation in one sample is paired with a corresponding observation in the other sample.
+        \item Example: Before-and-after measurements on the same individuals.
+    \end{itemize}
+\item \textbf{Assumptions for Paired t-Test:}
+    \begin{itemize}
+        \item The differences between paired observations are normally distributed.
+    \end{itemize}
+\item \textbf{Hypothesis Testing and Confidence Interval for Paired t-Test:}
+    \begin{itemize}
+        \item Calculate the differences between paired observations.
+        \item Perform a one-sample t-test on the differences.
+    \end{itemize}
+\end{itemize}
+
+\section*{Lecture 23: Inference of $p_1 - p_2$}
+
+\begin{itemize}
+\item \textbf{Inference for Two Population Proportions:}
+    \begin{itemize}
+        \item Used to compare the proportions of successes in two independent populations.
+    \end{itemize}
+\item \textbf{Assumptions:}
+    \begin{itemize}
+        \item Two independent random samples from two Bernoulli populations.
+        \item Expected successes and failures in each sample are at least 10.
+    \end{itemize}
+\item \textbf{Hypothesis Testing for the Difference in Proportions:}
+    \begin{itemize}
+        \item Null Hypothesis ($H_0$): $p_1 - p_2 = 0$ (no difference in proportions)
+        \item Alternative Hypothesis ($H_a$): 
+            \begin{itemize}
+                \item $p_1 - p_2 \ne 0$ (two-sided)
+                \item $p_1 - p_2 > 0$ (right-tailed)
+                \item $p_1 - p_2 < 0$ (left-tailed)
+            \end{itemize}
+        \item Test Statistic: $z = \frac{(\hat{p}_1 - \hat{p}_2) - (p_1 - p_2)}{\sqrt{\hat{p}(1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_2})}}$
+        \item P-value: Probability of observing a test statistic as extreme or more extreme than the one calculated, assuming the null hypothesis is true.
+        \item Conclusion:
+            \begin{itemize}
+                \item If p-value < $\alpha$ (significance level), reject $H_0$.
+                \item If p-value $\ge$ $\alpha$, fail to reject $H_0$.
+            \end{itemize}
+    \end{itemize}
+\item \textbf{Confidence Interval for the Difference in Proportions:}
+    \begin{itemize}
+        \item Formula: $(\hat{p}_1 - \hat{p}_2) \pm z_{\alpha/2} \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$
+        \item Interpretation: We are [confidence level] confident that the true difference in population proportions is between [lower bound] and [upper bound].
+    \end{itemize}
+\item \textbf{Agresti-Coull Adjustment:}
+    \begin{itemize}
+        \item Add 2 successes and 2 failures to each sample size to improve the accuracy of the confidence interval when sample sizes are small.
+    \end{itemize}
+\end{itemize}
+
+\section*{Other Considerations}
+
+\begin{itemize}
+\item \textbf{Type I and Type II Errors:}
+    \begin{itemize}
+        \item Type I Error: Rejecting the null hypothesis when it is actually true.
+        \item Type II Error: Failing to reject the null hypothesis when it is actually false.
+        \item The choice of significance level ($\alpha$) affects the probability of making these errors.
+    \end{itemize}
+\item \textbf{Controlling Type I Errors:}
+    \begin{itemize}
+        \item Use a smaller significance level ($\alpha$).
+        \item Increase the sample size.
+    \end{itemize}
+\item \textbf{Practical Significance vs. Statistical Significance:}
+    \begin{itemize}
+        \item Statistical significance: The result is unlikely to have occurred by chance.
+        \item Practical significance: The result has a meaningful impact in the real world.
+        \item A result can be statistically significant but not practically significant, and vice versa.
+    \end{itemize}
+\end{itemize} 
+\includegraphics[width=10cm]{diagram0.jpeg}
+\includegraphics[width=10cm]{diagram1.jpeg}
+\includegraphics[width=10cm]{diagram2.jpeg}
+\includegraphics[width=10cm]{diagram3.jpeg}
+\includegraphics[width=10cm]{diagram4.png}
+\includegraphics[width=10cm]{diagram5.jpg}
+\includegraphics[width=10cm]{diagram6.png}
+\end{multicols}
+\end{document}

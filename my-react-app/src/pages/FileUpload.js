@@ -10,6 +10,8 @@ import backgroundImage from "./bbe1c3.png";
 import axios from 'axios';
 import FileUploadButton from './fileuploadbutton';
 import { Row, Col } from 'react-bootstrap';
+import pdf from "../test.pdf"
+import tex from "../test.tex"
 
 function UploadPage() {
     var btns = []
@@ -151,6 +153,23 @@ function UploadPage() {
         <form onSubmit={getRequest}>
           <Button variant="secondary" type="submit">Generate Cheat Sheet</Button>
         </form>
+    </div>
+    <div className="row">
+    <div className="" style={{ position: 'fixed', top: '70%', left: '55%' }}>
+        {/* <LargeText text="UPLOAD" /> */}
+        {/* Button navigating to upload page */}
+        <a href={tex} download="cheat_sheet.tex" target='_blank'>
+          <Button size="lg">Download .tex</Button>
+        </a>
+    </div>
+    <div className="" style={{ position: 'fixed', top: '70%', left: '35%' }}>
+        {/* <LargeText text="UPLOAD" /> */}
+        {/* Button navigating to upload page */}
+        <a href={pdf} download="cheat_sheet.pdf" target='_blank'>
+          <Button size="lg">Download .pdf</Button>
+        </a>
+
+    </div>
     </div>
 </div>
 </div>

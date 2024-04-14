@@ -73,7 +73,7 @@ function Landing() {
             </div>
             <div className="" style={{ position: 'absolute', top: '25%', left: '23%' }}>
                 <LargeText text="Noteworthy.ai" />
-                <h1 style={{ textAlign: 'left', color: 'ivory' }}>Turn your notes into results ✨</h1>
+                <h1 style={{ textAlign: 'left', color: 'ivory' }}>Streamline Your Notes, Spark Brilliance ✨</h1>
                 {/* old uploads: */}
                 {/* <FileUploadButton />
                 <div className="App">
@@ -88,13 +88,12 @@ function Landing() {
                 </div> */}
                 {/* Button navigating to Demo page */}
                 <Link to="/upload">
-                    <Button variant="success">Get Started!</Button>
+                    <Button variant="success" className="custom-button">Get Started!</Button>
                 </Link>
 
                 <Link to="/demo">
-                    <Button variant="secondary">Watch Demo</Button>
+                    <Button variant="secondary" className="custom-button">Watch Demo</Button>
                 </Link>
-
 
             </div>
         </div>

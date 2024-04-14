@@ -13,8 +13,8 @@ class LandingNavBar extends Component {
         return(
             <Navbar>
                 <Navbar.Brand as={Link} to="/">
-                    <div style={{width:'100px', height:'140px'}}>
-                        <img style={{width:'100px', height:'100px'}} src={logo} alt="Logo" />
+                    <div style={{width:'70px', height:'140px'}}>
+                        <img style={{width:'55px', height:'55px'}} src={logo} alt="Logo" />
                     </div>
                 </Navbar.Brand>
                 <Navbar.Brand as={Link} to="https://github.com/AksheetDUTTA123/Google_Mhacks_Project2024">
