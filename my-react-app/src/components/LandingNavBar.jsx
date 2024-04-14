@@ -18,17 +18,17 @@ class LandingNavBar extends Component {
                     </div>
                 </Navbar.Brand>
                 <Navbar.Brand as={Link} to="https://github.com/AksheetDUTTA123/Google_Mhacks_Project2024">
-                    <div style={{width:'2180px', height:'100px'}}>
-                        <img style={{width:'50px', height:'50px'}} src={git} alt="Another Logo" />
-                    </div>
+                <div className="logo-container">
+        <img style={{width:'50px', height:'50px'}} src={git} alt="git" />
+      </div>
                 </Navbar.Brand>
-                <div className="ml-auto pr-5 pt-3">
+                {/* <div className="ml-auto pr-5 pt-3">
                     <Navbar.Text>
                         <ul>
                             {this.props.buttons}
                         </ul>
                     </Navbar.Text>
-                </div>
+                </div> */}
             </Navbar>
         );
     }

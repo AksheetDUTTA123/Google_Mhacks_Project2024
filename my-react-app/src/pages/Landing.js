@@ -67,6 +67,7 @@ function Landing() {
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: "cover",
                 height: '120vh',
+                // width: '400vh',
             }}>
                 <LandingNavBar style={{}} buttons={btns} />
             </div>

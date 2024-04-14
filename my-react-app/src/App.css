@@ -37,3 +37,20 @@
   }
 }
 
+.App {
+  position: relative; /* Ensure position:relative for relative positioning within this container */
+  /* Add any other styles for your main container */
+}
+
+.logo-container {
+  position: fixed; /* or absolute, depending on your preference */
+  top: 30px; /* Adjust as needed */
+  right: 40px; /* Adjust as needed */
+}
+
+.logo {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
