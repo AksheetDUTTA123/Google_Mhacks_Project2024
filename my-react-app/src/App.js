@@ -6,7 +6,7 @@ import Landing from './pages/Landing.js';
 // import Home from './pages/Home.js';
 import Test from './pages/Test.js';
 import Demo from './pages/Demo.js';
-import Upload from './pages/Upload.js';
+import Upload from './pages/FileUpload.js';
 // import {Login} from './components/Login.jsx';
 // import Contact from './pages/Contact.js';
 // import Chat from './components/Chat.jsx';
