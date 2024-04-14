@@ -1,6 +1,8 @@
 
 # Noteworthy.ai
 
+## Devpost Link : https://devpost.com/software/noteworthy-ai
+
 ## Inspiration
 
 The inspiration behind our project came from classes we have taken at the University of Michigan, where on exams we are allowed to create cheat sheets to use while taking them. This tool streamlines the process and ensures less time is spent on manual work, allowing more time for actual studying.
