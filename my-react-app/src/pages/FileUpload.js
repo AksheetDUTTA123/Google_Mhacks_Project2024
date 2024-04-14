@@ -113,7 +113,7 @@ function UploadPage() {
     </div>
 
 
-    <div className="" style={{ position: 'absolute', top: '50%', left: '50%' }}>
+    <div className="" style={{ position: 'absolute', top: '90%', left: '50%' }}>
         {/* <FileUploadButton />  */}
         {/* other way: */}
         {/* <div className="App">
@@ -145,7 +145,7 @@ function UploadPage() {
             <Button variant="secondary">Confused? Watch the demo!</Button>
         </Link>
     </div>
-    <div className="" style={{ position: 'fixed', top: '90%', left: '40%' }}>
+    <div className="" style={{ position: 'fixed', top: '50%', left: '43%' }}>
         {/* <LargeText text="UPLOAD" /> */}
         {/* Button navigating to upload page */}
         <form onSubmit={getRequest}>
