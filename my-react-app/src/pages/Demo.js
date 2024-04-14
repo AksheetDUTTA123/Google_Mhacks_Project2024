@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import LandingNavBar from "../components/LandingNavBar";
 import LargeText from "../components/LargeText";
-import backgroundImage from "./background.png";
+import backgroundImage from "./bbe1c3.png";
 import VideoPlayer from './VideoPlayer';
 
 

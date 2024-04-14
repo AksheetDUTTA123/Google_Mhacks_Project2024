@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import LandingNavBar from "../components/LandingNavBar";
 import LargeText from "../components/LargeText";
-import backgroundImage from "./background.png";
+import backgroundImage from "./bbe1c3.png";
 import "./Landing.css"; // Import the CSS file
 import axios from 'axios';
 import FileUploadButton from './fileuploadbutton';
@@ -71,9 +71,9 @@ function Landing() {
             }}>
                 <LandingNavBar style={{}} buttons={btns} />
             </div>
-            <div className="" style={{ position: 'absolute', top: '25%', left: '25%' }}>
-                <LargeText text="Note.ai" />
-                <h1 style={{ textAlign: 'left', color: 'ivory' }}>Insert motto here ✨</h1>
+            <div className="" style={{ position: 'absolute', top: '25%', left: '23%' }}>
+                <LargeText text="Noteworthy.ai" />
+                <h1 style={{ textAlign: 'left', color: 'ivory' }}>Turn your notes into results ✨</h1>
                 {/* old uploads: */}
                 {/* <FileUploadButton />
                 <div className="App">
