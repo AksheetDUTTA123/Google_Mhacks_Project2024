@@ -56,7 +56,7 @@ function UploadPage() {
   
       axios.post(url, formData, config)
         .then((response) => {
-          console.log(response.data);
+          console.log("response: " + response.data);
           setUploadedFiles(response.data.files);
         })
         .catch((error) => {
@@ -77,9 +77,9 @@ function UploadPage() {
     <div className="row">
       <div className="col-6">
         <h1>Upload PDF</h1>
-        <form xonSubmit={handleMultipleSubmit}>
+        <form onSubmit={handleMultipleSubmit}>
                 <input type="file" onChange={handleMultipleChange} className="custom-file-upload" />
-                <Button type="submit" variant="primary">Upload</Button>
+                <Button type="submit" variant="primary" >Upload</Button>
             </form>
             {uploadedFiles.map((file, index) => (
                 <img key={index} src={file} alt={`Uploaded content ${index}`} />
@@ -87,9 +87,9 @@ function UploadPage() {
       </div>
       <div className="col-6">
         <h1>Upload Images</h1>
-        <form xonSubmit={handleMultipleSubmit}>
+        <form onSubmit={handleMultipleSubmit}>
                 <input type="file" multiple onChange={handleMultipleChange} className="custom-file-upload" />
-                <Button type="submit" variant="primary">Upload</Button>
+                <Button type="submit" variant="primary" >Upload</Button>
             </form>
       </div>
     </div>
@@ -119,6 +119,7 @@ function UploadPage() {
             {uploadedFiles.map((file, index) => (
                 <img key={index} src={file} alt={`Uploaded content ${index}`} />
             ))}
+
         </div> */}
     <div className="" style={{ position: 'relative', top: '20%', left: '-50%' }}>
         {/* <LargeText text="UPLOAD" /> */}

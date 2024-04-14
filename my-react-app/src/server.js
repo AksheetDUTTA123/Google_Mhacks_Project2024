@@ -1,24 +1,41 @@
-const app = require('express');
+const express = require('express');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
 const spawn = require("child_process").spawn;
-const port = 3000
 
-// Require the upload middleware
-const upload = require('./upload');
+const app = express();
+console.log("eyfrfyb");
+// Multer configuration for file upload
+const upload = multer({ dest: 'uploads/' });
 
-app.post('/upload', upload.single('file'), (req, res) => {
-    console.log("upload button clicked.... i think")
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    if (!req.file) {
-        return res.status(400).send('No files were uploaded.');
-    }
-    res.send('File uploaded successfully.');
+// POST endpoint for file upload
+app.post('/uploadFiles', upload.array('file', 10), (req, res) => {
+    // Array to store uploaded file paths
+    console.log("here")
+    const uploadedFiles = [];
 
-    spawn('python3',['handle_card.py', store, price.toString()]).stdout.on('data', (data) => {
-        console.log("python: " + data);
-        res.send(data);
+    // Process each uploaded file
+    req.files.forEach(file => {
+        // Example: Post-processing - Rename uploaded files
+        const newName = `${Date.now()}-${file.originalname}`;
+        const newPath = path.join(__dirname, 'processed_files', newName);
+        
+        // Move the uploaded file to a new location
+        fs.renameSync(file.path, newPath);
+
+        // Store the path of the processed file
+        uploadedFiles.push(newPath);
     });
+
+    // Send response with the paths of processed files
+    res.json({ files: uploadedFiles });
+
+        // Spawn a Python process
+        const pythonProcess = spawn('python', ['main.py', ...uploadedFiles]);
 });
 
-app.listen(port, () => {
-    console.log("listening...");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
