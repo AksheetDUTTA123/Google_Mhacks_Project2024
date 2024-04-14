@@ -3,17 +3,23 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const spawn = require("child_process").spawn;
+const cors = require('cors');
+
 
 const app = express();
-console.log("eyfrfyb");
+app.use(cors());
 // Multer configuration for file upload
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'upload/' });
+
+const db = {};
 
 // POST endpoint for file upload
-app.post('/uploadFiles', upload.array('file', 10), (req, res) => {
+app.post('/upload', upload.array('file', 10), (req, res) => {
     // Array to store uploaded file paths
-    console.log("here")
+    console.log("files uploading...")
     const uploadedFiles = [];
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Process each uploaded file
     req.files.forEach(file => {
@@ -27,13 +33,27 @@ app.post('/uploadFiles', upload.array('file', 10), (req, res) => {
         // Store the path of the processed file
         uploadedFiles.push(newPath);
     });
-
-    // Send response with the paths of processed files
+    db.uploadedFiles = uploadedFiles;
+    // Send response with the paths of processed files ye or ney
     res.json({ files: uploadedFiles });
-
-        // Spawn a Python process
-        const pythonProcess = spawn('python', ['main.py', ...uploadedFiles]);
+    console.log("upload done")
 });
+
+app.get('/generating', (req, res) => {
+    console.log("now running python script")
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+     // // Spawn a Python process
+    // const pythonProcess = spawn('python', ['main.py', ...uploadedFiles]);
+    const uploadedFiles = db.uploadedFiles;
+
+    spawn('python3',['main.py', ...uploadedFiles]).stdout.on('data', (data) => {
+        console.log("python: " + data);
+        res.send(data);
+    });
+    console.log("end")
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

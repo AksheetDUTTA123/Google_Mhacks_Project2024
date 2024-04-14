@@ -42,10 +42,11 @@ function UploadPage() {
   
     function handleMultipleSubmit(event) {
       event.preventDefault();
-      const url = 'http://localhost:3000/uploadFiles';
+      
+      const url = 'http://localhost:3000/upload';
       const formData = new FormData();
-      files.forEach((file, index) => {
-        formData.append(`file${index}`, file);
+      files.forEach((file) => {
+        formData.append('file', file);
       });
   
       const config = {
@@ -53,7 +54,7 @@ function UploadPage() {
           'content-type': 'multipart/form-data',
         },
       };
-  
+
       axios.post(url, formData, config)
         .then((response) => {
           console.log("response: " + response.data);
@@ -62,6 +63,22 @@ function UploadPage() {
         .catch((error) => {
           console.error("Error uploading files: ", error);
         });
+    }
+
+    function getRequest(event) {
+      event.preventDefault();
+      
+      const url = 'http://localhost:3000/generating';
+
+        // await()
+      axios.get(url)
+        .then((response) => {
+          console.log("response: " + response.data);
+        })
+        .catch((error) => {
+          console.error("Error executing Python script: ", error);
+        }); 
+      console.log("end");
     }
   return (
 
@@ -81,9 +98,9 @@ function UploadPage() {
                 <input type="file" onChange={handleMultipleChange} className="custom-file-upload" />
                 <Button type="submit" variant="primary" >Upload</Button>
             </form>
-            {uploadedFiles.map((file, index) => (
+            {/* {uploadedFiles.map((file, index) => (
                 <img key={index} src={file} alt={`Uploaded content ${index}`} />
-            ))}
+            ))} */}
       </div>
       <div className="col-6">
         <h1>Upload Images</h1>
@@ -127,6 +144,13 @@ function UploadPage() {
         <Link to="/demo">
             <Button variant="secondary">Confused? Watch the demo!</Button>
         </Link>
+    </div>
+    <div className="" style={{ position: 'fixed', top: '90%', left: '40%' }}>
+        {/* <LargeText text="UPLOAD" /> */}
+        {/* Button navigating to upload page */}
+        <form onSubmit={getRequest}>
+          <Button variant="secondary" type="submit">Generate Cheat Sheet</Button>
+        </form>
     </div>
 </div>
 </div>
