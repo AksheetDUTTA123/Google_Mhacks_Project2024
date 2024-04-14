@@ -9,6 +9,7 @@ import backgroundImage from "./background.png";
 // import "./Landing.css"; // Import the CSS file
 import axios from 'axios';
 import FileUploadButton from './fileuploadbutton';
+import { Row, Col } from 'react-bootstrap';
 
 function UploadPage() {
     var btns = []
@@ -63,6 +64,8 @@ function UploadPage() {
         });
     }
   return (
+
+    
     <div className="" style={fullPage}>
     <div className="bg-img" style={{
         backgroundImage: `url(${backgroundImage})`,
@@ -70,12 +73,35 @@ function UploadPage() {
         height: '120vh',
     }}>
         <LandingNavBar style={{}} buttons={btns} />
+    {/* Row for text titles */}
+    <div className="row">
+      <div className="col-6">
+        <h1>Upload PDF</h1>
+        <form xonSubmit={handleMultipleSubmit}>
+                <input type="file" onChange={handleMultipleChange} className="custom-file-upload" />
+                <Button type="submit" variant="primary">Upload</Button>
+            </form>
+            {uploadedFiles.map((file, index) => (
+                <img key={index} src={file} alt={`Uploaded content ${index}`} />
+            ))}
+      </div>
+      <div className="col-6">
+        <h1>Upload Images</h1>
+        <form xonSubmit={handleMultipleSubmit}>
+                <input type="file" multiple onChange={handleMultipleChange} className="custom-file-upload" />
+                <Button type="submit" variant="primary">Upload</Button>
+            </form>
+      </div>
     </div>
+    </div>
+
+
     <div className="" style={{ position: 'absolute', top: '50%', left: '50%' }}>
         {/* <FileUploadButton />  */}
         {/* other way: */}
-        <div className="App">
+        {/* <div className="App">
             <form xonSubmit={handleMultipleSubmit}>
+                
                 <h1>Upload PDF</h1>
                 <input type="file" onChange={handleMultipleChange} className="custom-file-upload" />
                 <Button type="submit" variant="primary">Upload</Button>
@@ -93,8 +119,8 @@ function UploadPage() {
             {uploadedFiles.map((file, index) => (
                 <img key={index} src={file} alt={`Uploaded content ${index}`} />
             ))}
-        </div>
-    <div className="" style={{ position: 'below', top: '10x%', left: '25%' }}>
+        </div> */}
+    <div className="" style={{ position: 'relative', top: '20%', left: '-50%' }}>
         {/* <LargeText text="UPLOAD" /> */}
         {/* Button navigating to upload page */}
         <Link to="/demo">
