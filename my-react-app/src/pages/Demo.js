@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import LandingNavBar from "../components/LandingNavBar";
 import LargeText from "../components/LargeText";
 import backgroundImage from "./background.png";
+import VideoPlayer from './VideoPlayer';
+
 
 function DemoPage() {
     var btns = []
@@ -40,6 +42,7 @@ function DemoPage() {
     <div className="" style={{ position: 'absolute', top: '25%', left: '25%' }}>
         <LargeText text="DEMO" />
         {/* Button navigating to upload page */}
+        <VideoPlayer />
         <Link to="/upload">
             <Button variant="success">Get Started!</Button>
         </Link>
