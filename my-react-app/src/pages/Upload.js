@@ -1,14 +1,16 @@
+
+// Upload.js
 import React, { useState } from 'react';
 import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import LandingNavBar from "../components/LandingNavBar";
 import LargeText from "../components/LargeText";
 import backgroundImage from "./background.png";
-import "./Landing.css"; // Import the CSS file
+// import "./Landing.css"; // Import the CSS file
 import axios from 'axios';
 import FileUploadButton from './fileuploadbutton';
 
-function Landing() {
+function UploadPage() {
     var btns = []
     let text = ["GitHub"]
     let url = ['https://github.com/AksheetDUTTA123/Google_Mhacks_Project2024'];
@@ -60,44 +62,48 @@ function Landing() {
           console.error("Error uploading files: ", error);
         });
     }
-
-    return (
-        <div className="" style={fullPage}>
-            <div className="bg-img" style={{
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: "cover",
-                height: '120vh',
-            }}>
-                <LandingNavBar style={{}} buttons={btns} />
-            </div>
-            <div className="" style={{ position: 'absolute', top: '25%', left: '25%' }}>
-                <LargeText text="Note.ai" />
-                <h1 style={{ textAlign: 'left', color: 'ivory' }}>Insert motto here ✨</h1>
-                {/* old uploads: */}
-                {/* <FileUploadButton />
-                <div className="App">
-                    <form onSubmit={handleMultipleSubmit}>
-                        <h1>React Multiple File Upload</h1>
-                        <input type="file" multiple onChange={handleMultipleChange} className="custom-file-upload" />
-                        <Button type="submit" variant="primary">Upload</Button>
-                    </form>
-                    {uploadedFiles.map((file, index) => (
-                        <img key={index} src={file} alt={`Uploaded content ${index}`} />
-                    ))}
-                </div> */}
-                {/* Button navigating to Demo page */}
-                <Link to="/upload">
-                    <Button variant="success">Get Started!</Button>
-                </Link>
-
-                <Link to="/demo">
-                    <Button variant="secondary">Watch Demo</Button>
-                </Link>
-
-
-            </div>
+  return (
+    <div className="" style={fullPage}>
+    <div className="bg-img" style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        height: '120vh',
+    }}>
+        <LandingNavBar style={{}} buttons={btns} />
+    </div>
+    <div className="" style={{ position: 'absolute', top: '50%', left: '50%' }}>
+        {/* <FileUploadButton />  */}
+        {/* other way: */}
+        <div className="App">
+            <form xonSubmit={handleMultipleSubmit}>
+                <h1>Upload PDF</h1>
+                <input type="file" onChange={handleMultipleChange} className="custom-file-upload" />
+                <Button type="submit" variant="primary">Upload</Button>
+            </form>
+            {uploadedFiles.map((file, index) => (
+                <img key={index} src={file} alt={`Uploaded content ${index}`} />
+            ))}
         </div>
-    );
+        <div className="App">
+            <form xonSubmit={handleMultipleSubmit}>
+                <h1>Upload Images</h1>
+                <input type="file" multiple onChange={handleMultipleChange} className="custom-file-upload" />
+                <Button type="submit" variant="primary">Upload</Button>
+            </form>
+            {uploadedFiles.map((file, index) => (
+                <img key={index} src={file} alt={`Uploaded content ${index}`} />
+            ))}
+        </div>
+    <div className="" style={{ position: 'below', top: '10x%', left: '25%' }}>
+        {/* <LargeText text="UPLOAD" /> */}
+        {/* Button navigating to upload page */}
+        <Link to="/demo">
+            <Button variant="secondary">Confused? Watch the demo!</Button>
+        </Link>
+    </div>
+</div>
+</div>
+  );
 }
 
-export default Landing;
+export default UploadPage;
